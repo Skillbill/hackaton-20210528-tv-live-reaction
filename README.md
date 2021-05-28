@@ -5,6 +5,8 @@ hackaton-20210528-tv-live-reaction
 
 [![buddy pipeline](https://app.buddy.works/skillbill-bw/hackaton-20210528-tv-live-reaction/pipelines/pipeline/329202/badge.svg?token=107d3bbbb60ecabcdb08e0c4f842888977cc5d7b269e84936f8b8074747daf78 "buddy pipeline")](https://app.buddy.works/skillbill-bw/hackaton-20210528-tv-live-reaction/pipelines/pipeline/329202)
 
+![screenshot](./demo-screenshot.png)
+
 # DEV
 
 ## API
@@ -13,6 +15,14 @@ hackaton-20210528-tv-live-reaction
 cd api
 npm install
 npm run start
+```
+
+## FE
+
+```
+cd frontend
+npm install
+npm run serve
 ```
 
 # CLOUD
