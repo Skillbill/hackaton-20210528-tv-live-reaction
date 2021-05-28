@@ -3,7 +3,7 @@
     <TVStream />
   </div>
   <div id="overlay">
-    <Reactions :activeReaction="reaction" ref="reaction"/>
+    <Reactions :reactions="reactions" ref="reaction"/>
   </div>
 </template>
 
@@ -21,12 +21,14 @@ export default {
   },
   data () {
     return {
-      reaction: ''
+      reactions: {}
     }
   },
   created() {
     initApi({
-      onReactions: console.log,
+      onReactions: (reactions) => {
+        this.reactions = reactions;
+      },
       onStatusChange: console.log
     });
 
@@ -34,20 +36,19 @@ export default {
       let reaction = ''
       switch(event.keyCode) {
         case KEY_CODES.RED:
-          reaction = 'angry'
+          reaction = 'red'
           break;
         case KEY_CODES.GREEN:
-          reaction = 'dizzy'
+          reaction = 'green'
           break;
         case KEY_CODES.YELLOW:
-          reaction = 'laughing'
+          reaction = 'yellow'
           break;
         case KEY_CODES.BLUE:
-          reaction = 'smile'
+          reaction = 'blue'
           break;
       }
       if(reaction) {
-        this.reaction = reaction
         sendReaction(reaction)
       }
     })

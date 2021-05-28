@@ -5,7 +5,6 @@
         :src="image.src" 
         v-for="image in images" 
         :key="image"
-        :class="{ 'active': activeReaction === image.name }" 
         tabindex="1" />
     </div>
   </div>
@@ -25,9 +24,8 @@ export default {
     }
   },
   props: {
-    activeReaction: {
-      type: String,
-      default: ''
+    reactions: {
+      type: Object
     }
   }
 }
