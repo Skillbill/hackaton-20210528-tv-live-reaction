@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test PAGE</title>
+    <style>
+        .log {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 100%;
+            height: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea id="log" class="log">
+    </textarea>
+    <script>
+        let eventSource = new EventSource('event');
+        const log = document.getElementById("log");
+        eventSource.addEventListener("reaction", function(event) {
+            log.innerHTML = event.data;
+        });
+    </script>
+</body>
+
+</html>
