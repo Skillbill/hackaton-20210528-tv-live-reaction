@@ -3,7 +3,7 @@
     <TVStream />
   </div>
   <div id="overlay">
-    <Reactions :reactions="reactions" ref="reaction"/>
+    <Reactions :images="images" :reactions="reactions"/>
     <ReactionsFeedback :reaction="reaction"/>
   </div>
 </template>
@@ -11,6 +11,7 @@
 <script>
 import TVStream from './components/TVStream.vue'
 import Reactions from './components/Reactions.vue'
+import ReactionsFeedback from './components/ReactionsFeedback.vue'
 import { init as initApi, sendReaction } from './lib/api';
 import { KEY_CODES } from './lib/keyCodes.js';
 
@@ -24,6 +25,7 @@ export default {
   data () {
     return {
       reactions: {},
+      images: [ "angry", "dizzy", "laughing", "smile"],
       reaction: ''
     }
   },
