@@ -1,5 +1,5 @@
 <template>
-  <video autoplay ref="video"></video>
+  <video autoplay loop ref="video"></video>
 </template>
 
 <script>
@@ -18,11 +18,7 @@ export default {
     if(isBrowser()) {
       document.addEventListener("click", () => {
         if(video.paused) {
-          console.log("play");
           video.play().catch(console.error);
-        } else {
-          console.log("pause");
-          video.pause();
         }
       });
     }
