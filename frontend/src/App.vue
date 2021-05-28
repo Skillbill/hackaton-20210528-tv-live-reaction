@@ -10,6 +10,7 @@
 <script>
 import TVStream from './components/TVStream.vue'
 import Reactions from './components/Reactions.vue'
+import { init as initApi, sendReaction } from './lib/api';
 
 export default {
   name: "App",
@@ -18,6 +19,10 @@ export default {
     Reactions
   },
   created() {
+    initApi({
+      onReactions: console.log
+    });
+
     document.addEventListener("keypress", event => {
       let reaction = ''
       switch(event.key) {
@@ -34,7 +39,10 @@ export default {
           reaction = 'smile'
           break;
       }
-      reaction !== '' && this.$refs.reaction.setActiveReaction(reaction)
+      if(reaction) {
+        this.$refs.reaction.setActiveReaction(reaction)
+        sendReaction(reaction)
+      }
     })
   }
 };
