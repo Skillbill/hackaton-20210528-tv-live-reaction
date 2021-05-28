@@ -1,23 +1,15 @@
 <template>
   <div>
-    <vue-star animate="yourAnimateCssClass" color="rgb(152, 138, 222)">
-      <img/>
-    </vue-star>
+    <img :src="image"/>
   </div>
 </template>
 
 <script>
-import VueStar from 'vue-star'
+import Angry from '../assets/icons/emoji-angry.svg';
 
 export default {
-  components: {
-    VueStar
-  },
-  data () {
-    return {image: null}
-  },
-  created() {
-
+  data() {
+    return {image: Angry}
   }
 }
 </script>
