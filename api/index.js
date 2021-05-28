@@ -19,7 +19,7 @@ const db = require('./db');
 db.run("CREATE TABLE reaction (timestamp TEXT, type TEXT, weight INTEGER, deviceId TEXT)").then(() => {
     return db.run("CREATE TABLE reaction_store (type TEXT, active INTEGER)");
 }).then(() => {
-    return db.run("INSERT INTO reaction_store VALUES('red', 1), ('yellow', 1), ('green', 1), ('blue', 1)");
+    return db.run("INSERT INTO reaction_store VALUES('like', 0), ('love', 0), ('angry', 0), ('sigh', 0), ('laugh', 0), ('clap', 0), ('party', 0)");
 }).then(() => {
     app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/index.html')));
 
@@ -30,12 +30,32 @@ db.run("CREATE TABLE reaction (timestamp TEXT, type TEXT, weight INTEGER, device
         let weight = 1;
 
         db.get("SELECT COUNT(*) AS count FROM reaction_store WHERE type=? AND active = 1", [req.body['type']]).then(row => {
+            console.log(row)
             if(row['count']){
-                db.insert("INSERT INTO reaction VALUES (?, ?, ?, ?)", [ts, req.body['type'], weight, req.body['deviceId']]).then(() => res.send());
+                db.query("INSERT INTO reaction VALUES (?, ?, ?, ?)", [ts, req.body['type'], weight, req.body['deviceId']]).then(() => res.send());
             }else {
                 res.sendStatus(400);
             }
         })
+    });
+
+    app.post('/be-reset/', (req, res) => {
+
+        db.run("UPDATE reaction_store SET active = 0").then(() => {
+            return db.run("DELETE FROM reaction");
+        }).then(() => {
+            let arr = [];
+
+            (req.body || []).forEach(element => {
+                arr.push(db.query("UPDATE reaction_store SET active = 1 WHERE type = ?", [element]));
+            });
+            return Promise.all(arr);            
+        }).then(() => {           
+            res.send();
+        }).catch(err => {
+            console.log(err);
+            res.sendStatus(500);
+        });
     });
 
     app.listen(port, () => {

@@ -14,7 +14,7 @@ exports.open=function(path) {
     })
 }
 
-// any query withouth prepared statement
+// any query without prepared statement
 exports.run=function(query) {
   return new Promise(function(resolve, reject) {
       db.run(query, 
@@ -26,7 +26,7 @@ exports.run=function(query) {
 }
 
 // any query: insert
-exports.insert=function(query, params) {
+exports.query=function(query, params) {
   return new Promise(function(resolve, reject) {
       db.run(query, params, function(err) {
         if(err) reject(err.message)
