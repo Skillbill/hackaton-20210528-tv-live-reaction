@@ -20,7 +20,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import '~animate.css/source/animate.css';
+
 * {
   padding: 0;
   margin: 0;
