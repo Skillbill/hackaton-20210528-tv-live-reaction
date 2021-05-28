@@ -4,6 +4,7 @@
   </div>
   <div id="overlay">
     <Reactions :reactions="reactions" ref="reaction"/>
+    <ReactionsFeedback :reaction="reaction"/>
   </div>
 </template>
 
@@ -17,11 +18,13 @@ export default {
   name: "App",
   components: {
     TVStream,
-    Reactions
+    Reactions,
+    ReactionsFeedback
   },
   data () {
     return {
-      reactions: {}
+      reactions: {},
+      reaction: ''
     }
   },
   created() {
@@ -49,6 +52,7 @@ export default {
           break;
       }
       if(reaction) {
+        this.reaction = reaction
         sendReaction(reaction)
       }
     })
