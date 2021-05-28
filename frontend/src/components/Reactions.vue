@@ -16,7 +16,7 @@
           class="reaction-color"
           :style="{ 'background-color': reaction.color }"
         ></div>
-        <div class="percentage">25%</div>
+        <div class="percentage">{{reaction.value}}</div>
       </div>
     </div>
   </div>
@@ -49,6 +49,7 @@ export default {
         name: e,
         color: this.colors[i],
         src: require(`@/assets/icons/${e}.svg`),
+        value: this.reactions[e]
       }));
     },
   },
