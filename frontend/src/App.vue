@@ -17,6 +17,16 @@ export default {
     TVStream,
     Reactions
   },
+  created() {
+    document.addEventListener("keypress", event => {
+      switch(event.key) {
+        case 'r':
+        case 'g':
+        case 'y':
+        case 'b':
+      }
+    })
+  }
 };
 </script>
 
