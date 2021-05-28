@@ -1,7 +1,7 @@
 hackaton-20210528-tv-live-reaction
 ==================================
 
-http://live-reaction.skillbill.net
+https://live-reaction.skillbill.net
 
 # CLOUD
 
