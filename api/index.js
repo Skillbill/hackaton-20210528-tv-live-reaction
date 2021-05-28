@@ -31,9 +31,9 @@ db.run("CREATE TABLE reaction (timestamp TEXT, type TEXT, weight INTEGER, device
 
         db.get("SELECT COUNT(*) AS count FROM reaction_store WHERE type=? AND active = 1", [req.body['type']]).then(row => {
             console.log(row)
-            if(row['count']){
+            if (row['count']) {
                 db.query("INSERT INTO reaction VALUES (?, ?, ?, ?)", [ts, req.body['type'], weight, req.body['deviceId']]).then(() => res.send());
-            }else {
+            } else {
                 res.sendStatus(400);
             }
         })
@@ -49,9 +49,12 @@ db.run("CREATE TABLE reaction (timestamp TEXT, type TEXT, weight INTEGER, device
             (req.body || []).forEach(element => {
                 arr.push(db.query("UPDATE reaction_store SET active = 1 WHERE type = ?", [element]));
             });
-            return Promise.all(arr);            
-        }).then(() => {           
+            return Promise.all(arr);
+        }).then(() => {
             res.send();
+
+            sse.send({}, "reset");
+
         }).catch(err => {
             console.log(err);
             res.sendStatus(500);
@@ -64,7 +67,7 @@ db.run("CREATE TABLE reaction (timestamp TEXT, type TEXT, weight INTEGER, device
 
             console.log(rows);
             let types = [];
-            
+
             rows.forEach(element => {
                 types.push(element['type'])
             });
