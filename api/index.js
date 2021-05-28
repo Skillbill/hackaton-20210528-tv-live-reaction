@@ -22,7 +22,7 @@ db.run("CREATE TABLE reaction (timestamp TEXT, type TEXT, weight INTEGER, device
         </head>
         <body>
           <script>
-            let variable = new EventSource('http://localhost:3000/event');
+            let variable = new EventSource('/api/event');
             variable.onmessage = function(event) {
               console.log(event);
             }
