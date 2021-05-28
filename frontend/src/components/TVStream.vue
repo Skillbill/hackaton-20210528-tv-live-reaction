@@ -4,6 +4,7 @@
 
 <script>
 import shaka from "shaka-player";
+import { isBrowser } from "../lib/platformCheck";
 
 export default {
   mounted() {
@@ -14,7 +15,19 @@ export default {
 
     player.load('https://storage.googleapis.com/shaka-demo-assets/sintel/dash.mpd');
 
-    video.play().catch(console.error);
+    if(isBrowser()) {
+      document.addEventListener("click", () => {
+        if(video.paused) {
+          console.log("play");
+          video.play().catch(console.error);
+        } else {
+          console.log("pause");
+          video.pause();
+        }
+      });
+    }
+
+    window.video = video;
   }
 }
 </script>
