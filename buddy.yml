@@ -1,9 +1,11 @@
-- pipeline: "Deploy to Test"
-  trigger_mode: "ON_EVERY_PUSH"
-  ref_name: "master"
-  ref_type: "BRANCH"
-  target_site_url: "https://livereaction.skillbill.net"
-  actions:
+- pipeline: "Deploy"
+  on: "EVENT"
+  events:
+  - type: "PUSH"
+    refs:
+    - "refs/heads/main"
+  priority: "NORMAL"
+  fail_on_prepare_env_warning: true
   - action: "[SERVER] Build Docker image"
     type: "DOCKERFILE"
     login: "${DOCKER_HUB_USER}"
