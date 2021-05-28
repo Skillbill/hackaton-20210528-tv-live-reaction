@@ -30,7 +30,6 @@ export default {
     });
 
     document.addEventListener("keypress", event => {
-      console.log(event);
       let reaction = ''
       switch(event.keyCode) {
         case KEY_CODES.RED:
