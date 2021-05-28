@@ -20,4 +20,41 @@ mkdir -p /var/lib/buddy
 mkdir -p /var/log/server
 ```
 
+# HTTPS
+
+```
+apt-get update
+apt-get install nginx
+snap install --classic certbot 
+certbot --nginx 
+vi /etc/nginx/sites-enabled/default 
+#HTTPS CONF
+nginx -t && nginx -s reload
+```
+
+## HTTPS CONF
+
+```
+location / {
+    proxy_pass http://127.0.0.1:8080;
+    add_header Cache-Control 'must-revalidate, proxy-revalidate, max-age=0';
+}
+
+location /api {
+    rewrite ^/api/(.*)$ /$1 break;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_pass http://127.0.0.1:3000;
+}
+
+location /ws {
+    rewrite ^/ws/(.*)$ /$1 break;
+    proxy_pass http://127.0.0.1:3000;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "Upgrade";
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+}
+
+```
 
