@@ -3,8 +3,8 @@
     <TVStream />
   </div>
   <div id="overlay">
-    <Reactions :images="images" :reactions="reactions"/>
-    <ReactionsFeedback :reaction="reaction"/>
+    <Reactions :images="availableReactions" :reactions="reactionsTotal"/>
+    <ReactionsFeedback :reaction="userReaction"/>
   </div>
 </template>
 
@@ -24,17 +24,19 @@ export default {
   },
   data () {
     return {
-      reactions: {},
-      images: [ "angry", "dizzy", "laughing", "smile"],
-      reaction: ''
+      reactionsTotal: {},
+      availableReactions: [],
+      userReaction: ''
     }
   },
   created() {
     initApi({
       onReactions: (reactions) => {
-        this.reactions = reactions;
+        this.reactionsTotal = reactions;
       },
-      onStatusChange: console.log
+      onStatusChange: (reactions) => {
+        this.availableReactions = reactions;
+      }
     });
 
     document.addEventListener("keypress", event => {
@@ -54,7 +56,7 @@ export default {
           break;
       }
       if(reaction) {
-        this.reaction = reaction
+        this.userReaction = reaction
         sendReaction(reaction)
       }
     })
