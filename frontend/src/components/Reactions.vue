@@ -92,7 +92,6 @@ export default {
 .reaction {
   width: 40px;
   height: 40px;
-  background-color: yellow;
   border-radius: 50%;
 }
 

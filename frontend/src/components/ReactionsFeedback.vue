@@ -38,18 +38,22 @@ export default {
         return min + Math.random() * (max - min);
       }
 
+      const imageUrl = require(`@/assets/icons/${type}.svg`)
+
+      console.log(imageUrl)
       const icon = document.createElement("div");
       icon.classList.add(type);
       icon.classList.add("icon");
+      icon.style.backgroundImage = `url('${imageUrl}')`;
       icon.style.setProperty("--up-speed", `${random(2, 5)}s`);
       icon.style.setProperty("--start-pos", `${random(-2, 2)}%`);
       icon.style.setProperty("--h-speed", `${random(1, 3)}s`);
       icon.style.setProperty("--direction", Math.random() > 0.5 ? "alternate" : "alternate-reverse");
       this.$refs.feedbacks.appendChild(icon);
 
-      setTimeout(() => {
-        icon.remove();
-      }, 6000);
+      // setTimeout(() => {
+      //   icon.remove();
+      // }, 6000);
     },
   },
 };
@@ -64,13 +68,15 @@ export default {
   left: 0;
 
   .icon {
-    height: 20px;
-    width: 20px;
-    background: red;
+    height: 50px;
+    width: 50px;
     position: absolute;
     bottom: -20%;
     animation: var(--up-speed) linear 0s up,
       var(--h-speed) linear 0s var(--direction) infinite left-right;
+    background-size: contain;
+    background-repeat: no-repeat;
+
   }
 
   @keyframes up {
