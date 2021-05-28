@@ -1,0 +1,13 @@
+{
+  "vendor": "Skillbill",
+  "largeIcon": "largeicon.png",
+  "icon": "icon.png",
+  "main": "index.html",
+  "id": "com.skillbill.reaction",
+  "title": "Skillbill TV Reaction",
+  "type": "web",
+  "version": "1.0.0",
+  "disableBackHistoryAPI": true,
+  "bgColor": "#ffffff",
+  "handlesRelaunch": false
+}
