@@ -1,0 +1,10 @@
+version: '3'
+services:
+  server:
+    image : "skillbillsrl/hackaton-20210528-api:${TAG}"
+    ports:
+      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:3001:3001"
+    volumes: 
+      - /config/config-server.json:/config.json
+      - /var/log/server:/var/log/server
