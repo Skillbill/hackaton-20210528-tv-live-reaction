@@ -69,14 +69,17 @@
                     payload.push(input.value);
                 }
             }
-            console.log(payload);
-            await fetch(`be-reset`, {
+            const res = await fetch(`be-reset`, {
                 method: 'POST',
                 body: JSON.stringify(payload),
                 headers: {
                     'Content-Type': 'application/json'
                 }
             });
+            if (res.status != 200) {
+                alert(`can't reset ${res.status}`);
+                readTypes();
+            }
         }
 
         readTypes();

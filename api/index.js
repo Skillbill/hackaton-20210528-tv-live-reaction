@@ -40,13 +40,19 @@ db.run("CREATE TABLE reaction (timestamp TEXT, type TEXT, weight INTEGER, device
     });
 
     app.post('/be-reset/', (req, res) => {
+        const reactions = req.body || [];
+        if (reactions.length != 0 && reactions.length != 4) {
+            res.sendStatus(400);
+            return;
+        }
+
 
         db.run("UPDATE reaction_store SET active = 0").then(() => {
             return db.run("DELETE FROM reaction");
         }).then(() => {
             let arr = [];
 
-            (req.body || []).forEach(element => {
+            reactions.forEach(element => {
                 arr.push(db.query("UPDATE reaction_store SET active = 1 WHERE type = ?", [element]));
             });
             return Promise.all(arr);
