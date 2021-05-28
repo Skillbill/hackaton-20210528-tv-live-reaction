@@ -1,10 +1,24 @@
 <template>
-  <div></div>
+  <div>
+    <vue-star animate="yourAnimateCssClass" color="rgb(152, 138, 222)">
+      <img/>
+    </vue-star>
+  </div>
 </template>
 
 <script>
-export default {
+import VueStar from 'vue-star'
 
+export default {
+  components: {
+    VueStar
+  },
+  data () {
+    return {image: null}
+  },
+  created() {
+
+  }
 }
 </script>
 
