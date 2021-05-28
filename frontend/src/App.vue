@@ -19,7 +19,12 @@ export default {
   },
   created() {
     document.addEventListener("keypress", event => {
-      console.log(event)
+      switch(event.key) {
+        case 'r':
+        case 'g':
+        case 'y':
+        case 'b':
+      }
     })
   }
 };

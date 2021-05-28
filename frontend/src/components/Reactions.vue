@@ -15,6 +15,8 @@ import Smile from '../assets/icons/emoji-smile.svg';
 export default {
   data() {
     return {images: [Angry, Dizzy, Laughing, Smile]}
+  },
+  created() {
   }
 }
 </script>
