@@ -21,7 +21,7 @@
     <textarea id="log" class="log">
     </textarea>
     <script>
-        let eventSource = new EventSource('http://live-reaction.skillbill.net:3000/event');
+        let eventSource = new EventSource('event');
         const log = document.getElementById("log");
         eventSource.addEventListener("reaction", function(event) {
             log.innerHTML = event.data;
