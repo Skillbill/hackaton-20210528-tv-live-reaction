@@ -51,9 +51,9 @@ export default {
       icon.style.setProperty("--direction", Math.random() > 0.5 ? "alternate" : "alternate-reverse");
       this.$refs.feedbacks.appendChild(icon);
 
-      // setTimeout(() => {
-      //   icon.remove();
-      // }, 6000);
+      setTimeout(() => {
+        icon.remove();
+      }, 6000);
     },
   },
 };
