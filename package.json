@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "express-sse": "^0.5.3",
-    "sqlite3": "^5.0.2"
-  }
-}
