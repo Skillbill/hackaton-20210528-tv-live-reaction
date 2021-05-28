@@ -4,7 +4,7 @@
   </div>
   <div id="overlay">
     <Reactions :images="availableReactions" :reactions="reactionsTotal"/>
-    <ReactionsFeedback :reaction="userReaction"/>
+    <ReactionsFeedback :reaction="userReaction" :reactionsTotal="reactionsTotal"/>
   </div>
 </template>
 
@@ -35,29 +35,35 @@ export default {
         this.reactionsTotal = reactions;
       },
       onStatusChange: (reactions) => {
-        this.availableReactions = reactions;
+        if(reactions.length > 0) {
+          this.availableReactions = reactions;
+        } else {
+          this.availableReactions = [];
+        }
       }
     });
 
     document.addEventListener("keypress", event => {
-      let reaction = ''
-      switch(event.keyCode) {
-        case KEY_CODES.RED:
-          reaction = 'red'
-          break;
-        case KEY_CODES.GREEN:
-          reaction = 'green'
-          break;
-        case KEY_CODES.YELLOW:
-          reaction = 'yellow'
-          break;
-        case KEY_CODES.BLUE:
-          reaction = 'blue'
-          break;
-      }
-      if(reaction) {
-        this.userReaction = reaction
-        sendReaction(reaction)
+      if(this.availableReactions.length > 0) {
+        let reaction = ''
+        switch(event.keyCode) {
+          case KEY_CODES.RED:
+            reaction = this.availableReactions[0]
+            break;
+          case KEY_CODES.GREEN:
+            reaction = this.availableReactions[1]
+            break;
+          case KEY_CODES.YELLOW:
+            reaction = this.availableReactions[2]
+            break;
+          case KEY_CODES.BLUE:
+            reaction = this.availableReactions[3]
+            break;
+        }
+        if(reaction) {
+          this.userReaction = reaction
+          sendReaction(reaction)
+        }
       }
     })
   }

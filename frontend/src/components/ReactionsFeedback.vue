@@ -13,11 +13,24 @@ export default {
       type: String,
       default: "",
     },
+    reactionsTotal: {
+      type: Object
+    }
   },
   watch: {
     reaction: function (val) {
       this.createIcon(val);
     },
+    reactionsTotal: function(totals, oldTotals) {
+      Object.keys(totals).forEach((key) => {
+        const newTotal = totals[key];
+        const oldTotal = oldTotals[key];
+        const diff = Math.min(newTotal - oldTotal, 10);
+        for (let index = 0; index < diff; index++) {
+          this.createIcon(key);
+        }
+      });
+    }
   },
   methods: {
     createIcon(type) {
