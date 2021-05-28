@@ -13,6 +13,8 @@ export default {
     const player = new shaka.Player(video);
 
     player.load('https://storage.googleapis.com/shaka-demo-assets/sintel/dash.mpd');
+
+    video.play().catch(console.error);
   }
 }
 </script>
