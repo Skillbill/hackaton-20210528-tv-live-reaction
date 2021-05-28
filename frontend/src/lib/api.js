@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-const apiBase = "http://live-reaction.skillbill.net:3000";
+const apiBase = "https://live-reaction.skillbill.net/api";
 const deviceId = uuidv4();
 
 export async function init({onReactions}) {
