@@ -3,12 +3,17 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 const path = require('path');
+const cors = require('cors');
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 
 var SSE = require('express-sse');
 var sse = new SSE();
+
+
 
 const db = require('./db');
 db.run("CREATE TABLE reaction (timestamp TEXT, type TEXT, weight INTEGER, deviceId TEXT)").then(() => {
