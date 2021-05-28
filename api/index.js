@@ -58,6 +58,24 @@ db.run("CREATE TABLE reaction (timestamp TEXT, type TEXT, weight INTEGER, device
         });
     });
 
+    app.get('/status/', (req, res) => {
+
+        db.all("SELECT type FROM reaction_store WHERE active = 1").then(rows => {
+
+            console.log(rows);
+            let types = [];
+            
+            rows.forEach(element => {
+                types.push(element['type'])
+            });
+
+            res.send(types);
+        }).catch(err => {
+            console.log(err);
+            res.sendStatus(500);
+        });
+    });
+
     app.listen(port, () => {
         console.log(`listening at ${port}`)
     });
