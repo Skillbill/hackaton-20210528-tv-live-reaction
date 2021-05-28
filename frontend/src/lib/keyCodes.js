@@ -18,10 +18,10 @@ const getPlatformKeyCodes = () => {
   }
 
   return {
-    RED: 82, // R
-    GREEN: 71, // G
-    YELLOW: 89, // Y
-    BLUE: 66 // B
+    RED: 114, // r
+    GREEN: 103, // g
+    YELLOW: 121, // y
+    BLUE: 98 // b
   };
 };
 

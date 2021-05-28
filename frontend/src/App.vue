@@ -11,6 +11,7 @@
 import TVStream from './components/TVStream.vue'
 import Reactions from './components/Reactions.vue'
 import { init as initApi, sendReaction } from './lib/api';
+import { KEY_CODES } from './lib/keyCodes.js';
 
 export default {
   name: "App",
@@ -29,18 +30,19 @@ export default {
     });
 
     document.addEventListener("keypress", event => {
+      console.log(event);
       let reaction = ''
-      switch(event.key) {
-        case 'r':
+      switch(event.keyCode) {
+        case KEY_CODES.RED:
           reaction = 'angry'
           break;
-        case 'g':
+        case KEY_CODES.GREEN:
           reaction = 'dizzy'
           break;
-        case 'y':
+        case KEY_CODES.YELLOW:
           reaction = 'laughing'
           break;
-        case 'b':
+        case KEY_CODES.BLUE:
           reaction = 'smile'
           break;
       }
