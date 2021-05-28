@@ -1,26 +1,49 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="tv">
+    <TVStream />
+  </div>
+  <div id="overlay">
+    <Reactions />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TVStream from './components/TVStream.vue'
+import Reactions from './components/Reactions.vue'
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    TVStream,
+    Reactions
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#overlay,
+#tv {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#tv {
+  z-index: 0;
+  background-color: black;
+}
+
+#overlay {
+  z-index: 1;
 }
 </style>
