@@ -1,7 +1,12 @@
 <template>
   <div class="container">
     <div class="inner">
-      <img class="reaction" :src="image" v-for="image in images" :key="image" tabindex="1" />
+      <img class="reaction"
+        :src="image.src" 
+        v-for="image in images" 
+        :key="image"
+        :class="{ 'active': activeReaction === image.name }" 
+        tabindex="1" />
     </div>
   </div>
 </template>
@@ -14,14 +19,20 @@ import Smile from '../assets/icons/emoji-smile.svg';
 
 export default {
   data() {
-    return {images: [Angry, Dizzy, Laughing, Smile]}
+    return {
+      activeReaction: '',
+      images: [{name:'angry', src: Angry}, {name:'dizzy', src: Dizzy}, {name:'laughing', src: Laughing}, {name:'smile', src: Smile}]
+    }
   },
-  created() {
+  methods: {
+    setActiveReaction (reaction) {
+      this.activeReaction = reaction
+    }
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .container {
   position: absolute;
   bottom: 50px;
@@ -50,6 +61,10 @@ export default {
   width: 30px;
   height: 30px;
 }
+  .reaction.active {
+    width: 40px;
+    height: 40px;
+  }
 
 .reaction:focus, .reaction:hover {
   width: 40px;

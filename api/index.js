@@ -12,12 +12,31 @@ var sse = new SSE();
 const db = require('./db');
 db.run("CREATE TABLE reaction (timestamp TEXT, type TEXT, weight INTEGER, deviceId TEXT)").then(() => {
     app.get('/', (req, res) => {
-        res.send('Hello World!')
+        res.send(`<!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+        </head>
+        <body>
+          <script>
+            let variable = new EventSource('/api/event');
+            variable.onmessage = function(event) {
+              console.log(event);
+            }
+          </script>
+        </body>
+        </html>`)
     })
     
-    app.get('/api/event', sse.init);
+    app.get('/event', (req, res, next) => {
+        res.flush = () => {}; 
+        next();
+        }, sse.init);
 
-    app.post('/api/reaction/', (req, res) => {
+    app.post('/reaction/', (req, res) => {
         let ts = new Date().toISOString();
         let weight = 1;
 
@@ -25,7 +44,11 @@ db.run("CREATE TABLE reaction (timestamp TEXT, type TEXT, weight INTEGER, device
             res.send();
             return db.all("SELECT COUNT(type) AS count, type FROM reaction GROUP BY type");
         }).then(rows => {
-            sse.send(rows, "reaction");
+            let event = {};            
+            rows.forEach(element => {
+                event[element['type']] = element['count'];                
+            });
+            sse.send(event, "reaction");
         });
     })
     

@@ -3,7 +3,7 @@
     <TVStream />
   </div>
   <div id="overlay">
-    <Reactions />
+    <Reactions ref="reaction"/>
   </div>
 </template>
 
@@ -19,12 +19,22 @@ export default {
   },
   created() {
     document.addEventListener("keypress", event => {
+      let reaction = ''
       switch(event.key) {
         case 'r':
+          reaction = 'angry'
+          break;
         case 'g':
+          reaction = 'dizzy'
+          break;
         case 'y':
+          reaction = 'laughing'
+          break;
         case 'b':
+          reaction = 'smile'
+          break;
       }
+      reaction !== '' && this.$refs.reaction.setActiveReaction(reaction)
     })
   }
 };
