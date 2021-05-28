@@ -18,13 +18,21 @@
 </head>
 
 <body>
-    <textarea id="log" class="log">
+    <p>Reactions</p>
+    <textarea id="log-reaction" class="log">
+    </textarea>
+    <p>Resets</p>
+    <textarea id="log-reset" class="log">
     </textarea>
     <script>
         let eventSource = new EventSource('event');
-        const log = document.getElementById("log");
+        const logReaction = document.getElementById("log-reaction");
+        const logReset = document.getElementById("log-reset");
         eventSource.addEventListener("reaction", function(event) {
-            log.innerHTML = event.data;
+            logReaction.innerHTML = event.data;
+        });
+        eventSource.addEventListener("reset", function(event) {
+            logReset.innerHTML = event.data;
         });
     </script>
 </body>

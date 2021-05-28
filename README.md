@@ -3,6 +3,16 @@ hackaton-20210528-tv-live-reaction
 
 https://live-reaction.skillbill.net
 
+# DEV
+
+## API
+
+```
+cd api
+npm install
+npm run start
+```
+
 # CLOUD
 
 ```
