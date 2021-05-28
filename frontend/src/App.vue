@@ -3,7 +3,7 @@
     <TVStream />
   </div>
   <div id="overlay">
-    <Reactions :reactions="reactions" ref="reaction"/>
+    <Reactions :images="images" :reactions="reactions"/>
   </div>
 </template>
 
@@ -21,7 +21,9 @@ export default {
   },
   data () {
     return {
-      reactions: {}
+      reactions: {},
+      images: [ "angry", "dizzy", "laughing", "smile"],
+      reaction: ''
     }
   },
   created() {
