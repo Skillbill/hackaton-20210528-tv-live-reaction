@@ -2,7 +2,7 @@
   <div id="tv">
     <TVStream />
   </div>
-  <div id="app">
+  <div id="overlay">
     <Reactions />
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
   box-sizing: border-box;
 }
 
-#app,
+#overlay,
 #tv {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -43,7 +43,7 @@ export default {
   background-color: black;
 }
 
-#app {
+#overlay {
   z-index: 1;
 }
 </style>
