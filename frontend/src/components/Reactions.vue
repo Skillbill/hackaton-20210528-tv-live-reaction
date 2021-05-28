@@ -49,7 +49,7 @@ export default {
         name: e,
         color: this.colors[i],
         src: require(`@/assets/icons/${e}.svg`),
-        value: this.reactions[e]
+        value: this.reactions[e] || 0
       }));
     },
   },
