@@ -26,8 +26,6 @@ export default {
         }
       });
     }
-
-    window.video = video;
   }
 }
 </script>
