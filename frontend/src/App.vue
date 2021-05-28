@@ -20,7 +20,8 @@ export default {
   },
   created() {
     initApi({
-      onReactions: console.log
+      onReactions: console.log,
+      onStatusChange: console.log
     });
 
     document.addEventListener("keypress", event => {
