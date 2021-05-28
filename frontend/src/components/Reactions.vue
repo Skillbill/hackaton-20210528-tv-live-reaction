@@ -18,21 +18,22 @@ import Laughing from '../assets/icons/emoji-laughing.svg';
 import Smile from '../assets/icons/emoji-smile.svg';
 
 export default {
+  name: 'Reactions',
   data() {
     return {
-      activeReaction: '',
       images: [{name:'angry', src: Angry}, {name:'dizzy', src: Dizzy}, {name:'laughing', src: Laughing}, {name:'smile', src: Smile}]
     }
   },
-  methods: {
-    setActiveReaction (reaction) {
-      this.activeReaction = reaction
+  props: {
+    activeReaction: {
+      type: String,
+      default: ''
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .container {
   position: absolute;
   bottom: 50px;
@@ -61,10 +62,11 @@ export default {
   width: 30px;
   height: 30px;
 }
-  .reaction.active {
-    width: 40px;
-    height: 40px;
-  }
+
+.reaction.active {
+  width: 40px;
+  height: 40px;
+}
 
 .reaction:focus, .reaction:hover {
   width: 40px;

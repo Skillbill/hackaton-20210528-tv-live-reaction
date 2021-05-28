@@ -3,7 +3,7 @@
     <TVStream />
   </div>
   <div id="overlay">
-    <Reactions ref="reaction"/>
+    <Reactions :activeReaction="reaction" ref="reaction"/>
   </div>
 </template>
 
@@ -17,6 +17,11 @@ export default {
   components: {
     TVStream,
     Reactions
+  },
+  data () {
+    return {
+      reaction: ''
+    }
   },
   created() {
     initApi({
@@ -40,7 +45,7 @@ export default {
           break;
       }
       if(reaction) {
-        this.$refs.reaction.setActiveReaction(reaction)
+        this.reaction = reaction
         sendReaction(reaction)
       }
     })
