@@ -24,16 +24,62 @@
     <p>Resets</p>
     <textarea id="log-reset" class="log">
     </textarea>
+    <p>Reset</p>
+    <input class="type" type="checkbox" id="type-like" value="like">like</input>
+    <input class="type" type="checkbox" id="type-love" value="love">love</input>
+    <input class="type" type="checkbox" id="type-angry" value="angry">angry</input>
+    <input class="type" type="checkbox" id="type-sigh" value="sigh">sigh</input>
+    <input class="type" type="checkbox" id="type-laugh" value="laugh">laugh</input>
+    <input class="type" type="checkbox" id="type-clap" value="clap">clap</input>
+    <input class="type" type="checkbox" id="type-party" value="party">party</input>
+    <input type="button" id="reset" value="reset" />
+    <input type="button" id="reload" value="reload" />
     <script>
         let eventSource = new EventSource('event');
         const logReaction = document.getElementById("log-reaction");
         const logReset = document.getElementById("log-reset");
+        const resetButton = document.getElementById("reset");
+        const reloadButton = document.getElementById("reload");
+
+        const readTypes = async() => {
+            const res = await fetch(`status`);
+            const resJson = await res.json();
+            for (let input of document.getElementsByClassName("type")) {
+                input.checked = false;
+            }
+            for (let t of resJson) {
+                document.getElementById(`type-${t}`).checked = true;
+            }
+        }
+
         eventSource.addEventListener("reaction", function(event) {
             logReaction.innerHTML = event.data;
         });
         eventSource.addEventListener("reset", function(event) {
             logReset.innerHTML = event.data;
         });
+
+        reloadButton.onclick = readTypes;
+
+        resetButton.onclick = async(event) => {
+            event.preventDefault();
+            const payload = [];
+            for (let input of document.getElementsByClassName("type")) {
+                if (input.checked) {
+                    payload.push(input.value);
+                }
+            }
+            console.log(payload);
+            await fetch(`be-reset`, {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+        }
+
+        readTypes();
     </script>
 </body>
 

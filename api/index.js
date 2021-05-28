@@ -19,7 +19,7 @@ const db = require('./db');
 db.run("CREATE TABLE reaction (timestamp TEXT, type TEXT, weight INTEGER, deviceId TEXT)").then(() => {
     return db.run("CREATE TABLE reaction_store (type TEXT, active INTEGER)");
 }).then(() => {
-    return db.run("INSERT INTO reaction_store VALUES('like', 0), ('love', 0), ('angry', 0), ('sigh', 0), ('laugh', 0), ('clap', 0), ('party', 0)");
+    return db.run("INSERT INTO reaction_store VALUES('like', 1), ('love', 1), ('angry', 1), ('sigh', 1), ('laugh', 0), ('clap', 0), ('party', 0)");
 }).then(() => {
     app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/index.html')));
 
