@@ -21,6 +21,19 @@
     trigger_condition_paths:
     - "/api"
     trigger_condition: "ON_CHANGE_AT_PATH"
+  - action: "[FRONTEND] Build Docker image"
+    type: "DOCKERFILE"
+    login: "${DOCKER_HUB_USER}"
+    password: "${DOCKER_HUB_PASSWORD}"
+    docker_image_tag: "latest"
+    dockerfile_path: "frontend/Dockerfile"
+    context_path: "frontend/"
+    repository: "skillbillsrl/hackaton-20210528-frontend"
+    build_args:
+    - "version=${BUDDY_EXECUTION_REVISION}"
+    trigger_condition_paths:
+    - "/frontend"
+    trigger_condition: "ON_CHANGE_AT_PATH"
   - action: "update docker-compose"
     type: "SFTP"
     input_type: "SCM_REPOSITORY"
