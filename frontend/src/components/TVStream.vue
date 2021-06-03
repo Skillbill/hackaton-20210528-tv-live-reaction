@@ -1,6 +1,6 @@
 <template>
   <video loop ref="video"></video>
-  <div class="click-message" v-if="clickMessage">
+  <div class="click-message" v-if="isBrowser && clickMessage">
     <span>click to play the video</span>
   </div>
 </template>
@@ -13,6 +13,7 @@ export default {
   data() {
     return {
       clickMessage: false,
+      isBrowser: isBrowser()
     };
   },
 
@@ -37,7 +38,7 @@ export default {
       this.clickMessage = false;
     });
 
-    if (isBrowser()) {
+    if (this.isBrowser) {
       document.addEventListener("click", () => {
         if (video.paused) {
           video.play().catch(console.error);
