@@ -1,28 +1,26 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="108px" height="106px" viewBox="0 0 108 106" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
-    <title>ya</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
-            <feGaussianBlur stdDeviation="5.88235294" in="SourceGraphic" result="blur"></feGaussianBlur>
-        </filter>
-        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
-            <feGaussianBlur stdDeviation="5.88235294" in="SourceGraphic" result="blur"></feGaussianBlur>
-        </filter>
-    </defs>
-    <g id="FB-emojii-Freebies" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g sketch:type="MSArtboardGroup" transform="translate(-592.000000, -99.000000)" id="ya">
-            <g sketch:type="MSLayerGroup" transform="translate(594.117647, 99.000000)">
-                <g id="emoji" transform="translate(0.000000, 0.000000)" sketch:type="MSShapeGroup">
-                    <ellipse id="body" fill="#FFDA6A" cx="52.9411765" cy="52.8947368" rx="52.9411765" ry="52.8947368"></ellipse>
-                    <g id="expression" transform="translate(11.764706, 11.754386)">
-                        <ellipse id="red" fill="#F55065" filter="url(#filter-1)" cx="10.5882353" cy="42.3157895" rx="9.41176471" ry="9.40350877"></ellipse>
-                        <ellipse id="red" fill="#F55065" filter="url(#filter-2)" cx="65.8823529" cy="27.0350877" rx="9.41176471" ry="9.40350877"></ellipse>
-                        <path d="M27.9453458,21.9715618 C25.5359523,14.5627158 17.5714235,10.5081454 10.1560727,12.9154254 C2.74072202,15.3227054 -1.31740813,23.2802479 1.09198538,30.6890939 C1.49355096,31.9239016 2.82097244,32.5996633 4.05686423,32.19845 C5.29275602,31.7972366 5.96911104,30.4709796 5.56754546,29.2361719 C3.96128312,24.2969412 6.66670321,18.9919129 11.6102704,17.3870596 C16.5538375,15.7822062 21.8635234,18.4852532 23.4697858,23.4244838 C23.8713513,24.6592915 25.1987728,25.3350532 26.4346646,24.9338399 C27.6705564,24.5326266 28.3469114,23.2063695 27.9453458,21.9715618 Z M65.5924047,10.2171759 C63.1830112,2.80832983 55.2184823,-1.24624055 47.8031316,1.16103946 C40.3877808,3.56831946 36.3296507,11.5258619 38.7390442,18.9347079 C39.1406098,20.1695156 40.4680313,20.8452773 41.7039231,20.444064 C42.9398148,20.0428507 43.6161699,18.7165936 43.2146043,17.4817859 C41.6083419,12.5425552 44.313762,7.23752694 49.2573292,5.6326736 C54.2008963,4.02782027 59.5105822,6.73086719 61.1168446,11.6700979 C61.5184102,12.9049056 62.8458316,13.5806673 64.0817234,13.1794539 C65.3176152,12.7782406 65.9939702,11.4519835 65.5924047,10.2171759 Z M16.7189948,44.5425723 C18.0880599,47.2783006 26.0218164,50.5622594 33.1448632,50.8359824 C43.3576869,51.2284388 52.3826128,46.3920429 58.5322727,35.2206511 C59.158523,34.083013 58.7431516,32.6535443 57.6045147,32.0278433 C56.4658778,31.4021423 55.035154,31.8171494 54.4089037,32.9547875 C49.138038,42.5297733 41.7979593,46.4632711 33.325725,46.1377018 C30.1612723,46.0160988 27.0114115,45.2771394 24.2829184,44.1477553 C23.1885734,43.6947815 22.229989,43.2033354 21.5181761,42.7473381 C21.2258189,42.5600499 20.9955153,42.391274 20.8456446,42.2605209 C20.8168354,42.2353866 20.8375138,42.2589423 20.928064,42.4398838 C20.3469128,41.278601 18.9335645,40.8078982 17.7712621,41.3885396 C16.6089598,41.969181 16.1378437,43.3812895 16.7189948,44.5425723 Z" fill="#000000"></path>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg id="emoji" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+  <g id="color">
+    <polygon fill="#F1B31C" stroke="none" points="26.1808,20.1808 38.75,32.75 51.3192,45.3192 29.7894,54.2798 8.2597,63.2403 17.2202,41.7106"/>
+    <polygon fill="#FCEA2B" stroke="none" points="40,35 25.6924,20.6692 16.3914,42.5394 7.0905,64.4095"/>
+    <polygon fill="#EA5A47" stroke="none" points="15.2238,45.2849 26.2858,56.3469 20.7548,58.5984 12.9576,50.8012"/>
+    <polygon fill="#D22F27" stroke="none" points="17.3429,55.2475 20.7548,58.5984 26.2858,56.3469 21.4849,51.546"/>
+    <polygon fill="#EA5A47" stroke="none" points="20.8045,32.1625 27.5011,38.8591 39.2002,50.5583 32.9273,53.4217 24.7555,45.2498 18.1504,38.6447"/>
+    <polygon fill="#D22F27" stroke="none" points="26.5369,47.0312 32.9273,53.4216 39.2003,50.5582 31.3616,42.7197"/>
+    <ellipse cx="30.2951" cy="14.4579" rx="2" ry="1.9708" fill="#8967aa" stroke="none"/>
+    <path fill="#ea5a47" stroke="none" d="M23,37"/>
+    <ellipse cx="60.2951" cy="18.4579" rx="2" ry="1.9708" fill="#f1b31c" stroke="none"/>
+    <ellipse cx="57.2951" cy="39.4579" rx="2" ry="1.9708" fill="#d22f27" stroke="none"/>
+  </g>
+  <g id="hair"/>
+  <g id="skin"/>
+  <g id="skin-shadow"/>
+  <g id="line">
+    <polyline fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" points="50.6626,45.6395 50.8308,45.8076 28.9606,55.1086 7.0904,64.4096 16.3914,42.5394 25.6923,20.6692"/>
+    <polyline fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" points="25.801,20.7779 38.2616,33.2384 50.6626,45.6395"/>
+    <line x1="25.6923" x2="25.801" y1="20.6692" y2="20.7779" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+    <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M46.4905,7.3671c0.2347,0.4487,0.4027,0.943,0.4897,1.473c0.451,2.7473-1.447,5.4141-4.2392,5.9565"/>
+    <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M42.9327,14.7763c-0.5049,0.0384-1.0133,0.1573-1.509,0.364c-2.5697,1.0713-3.828,4.093-2.8105,6.7492"/>
+    <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M61.7928,26.7168c-0.0987,0.4967-0.2778,0.987-0.5425,1.4544c-1.372,2.4225-4.5229,3.309-7.0378,1.98"/>
+    <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M54.3745,30.2558c-0.4173-0.2868-0.8878-0.513-1.4036-0.663c-2.6733-0.7775-5.5486,0.7867-6.4223,3.4936"/>
+  </g>
 </svg>
