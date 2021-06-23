@@ -5,7 +5,6 @@ services:
     ports:
       - "3000:3000"
     volumes: 
-      - /config/config-server.json:/config.json
       - /var/log/server:/var/log/server
   front-end:
     image : "skillbillsrl/hackaton-20210528-frontend:${TAG}"
